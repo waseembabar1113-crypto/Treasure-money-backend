@@ -1,0 +1,1 @@
+See README.md for instructions. Use .env.example to configure environment variables before deploying to Render.
