@@ -1,0 +1,6 @@
+PORT=8080
+JAZZCASH_MERCHANT_ID=YOUR_JAZZ_MERCHANT_ID
+JAZZCASH_PASSWORD=YOUR_JAZZ_PASSWORD
+JAZZCASH_API_URL=https://sandbox.jazzcash.com.pk/PaymentGateway/Gen/PaymentRequest  # example
+WEBHOOK_SECRET=some_random_secret_for_verifying_webhooks
+ADMIN_EMAIL=you@example.com
