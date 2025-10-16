@@ -1,0 +1,19 @@
+async function startDepositFlow(userId){
+  const amountPKR = parseFloat(prompt('Enter deposit amount (PKR):'));
+  if(!amountPKR || amountPKR<=0) return alert('Invalid amount');
+  const method = prompt('Method: easypaisa or jazzcash').toLowerCase();
+  // call backend
+  const resp = await fetch('https://YOUR-BACKEND-URL/api/create-payment', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ userId, amountPKR, method })
+  });
+  const data = await resp.json();
+  if(data.ok && data.paymentUrl){
+    // open payment page (real provider or mock)
+    window.open(data.paymentUrl, '_blank');
+    alert('Payment page opened. After completing payment, your balance will be updated when provider notifies backend.');
+  } else {
+    alert('Error: ' + (data.error || data.message));
+  }
+}
